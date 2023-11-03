@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>[対戦]太鼓の達人</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333; /* ダークモード背景色 */
+    color: #fff; /* ダークモードテキスト色 */
+  }
+  #title-image {
+    display: block; /* ブロックレベル要素として表示 */
+    margin: 0 auto 20px; /* 上下のマージンは0、左右のマージンは自動 */
+    max-width: 100%; /* 画像がコンテナより大きくならないように */
+    height: auto; /* 高さを自動調整してアスペクト比を保持 */
+  }
+  #frame {
+    width: 480px;
+    height: 270px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  #frame-container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+  }
+  #username-input-container {
+    margin-bottom: 20px;
+  }
+  input, button {
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #555;
+    color: #fff;
+    outline: none;
+  }
+  button {
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #777;
+  }
+  #credit {
+    position: fixed; /* 位置を固定 */
+    right: 10px; /* 右から10ピクセルの位置 */
+    bottom: 10px; /* 下から10ピクセルの位置 */
+    color: #fff; /* テキストの色 */
+    font-size: 12px; /* フォントサイズ */
+  }
+</style>
+</head>
+<body>
+
+<div id="frame-container">
+  <img id="title-image" src="https://prtimes.jp/i/33062/331/resize/d33062-331-832430-5.png" alt="タイトル画像" /> <!-- タイトル画像を追加 -->
+  
+  <div id="username-input-container">
+    <label for="username">ユーザーネーム:</label>
+    <input type="text" id="username" name="username" required>
+  </div>
+
+  <iframe id="frame" src="" allowfullscreen></iframe>
+  <button onclick="loadProject()">表示</button>
+</div>
+<div id="credit">
+  by discovery1104
+</div>
+
+<script>
+function loadProject() {
+  var username = document.getElementById('username').value;
+  var url = `https://turbowarp.org/521187311/embed?fps=120&limitless&scale=2.667&size=480x270&username=${username}`; // URLに/embedを追加
+  document.getElementById('frame').src = url;
+}
+</script>
+
+</body>
+</html>
